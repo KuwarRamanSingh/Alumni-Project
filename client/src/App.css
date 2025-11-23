@@ -1,0 +1,266 @@
+/* =========================================
+   1. VARIABLES & RESET (REC BRANDING)
+   ========================================= */
+:root {
+  /* REC Sonbhadra Colors */
+  --primary-blue: #002366;    /* Deep Navy Blue from Header */
+  --accent-yellow: #FFD700;   /* Bright Yellow from Highlight bar */
+  --light-bg: #f4f7f6;        /* Clean Grey/White Background */
+  --white: #ffffff;
+  --text-dark: #2c3e50;
+  --text-light: #ecf0f1;
+  
+  /* Shadows & Radius */
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --hover-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  --radius: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  background-color: var(--light-bg);
+  color: var(--text-dark);
+}
+
+a { text-decoration: none; }
+
+/* =========================================
+   2. NAVBAR (IISc Style - Clean & Wide)
+   ========================================= */
+.navbar {
+  background-color: var(--primary-blue);
+  padding: 0 2rem;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Navbar Links Area */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-item {
+  color: var(--white) !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--accent-yellow) !important;
+}
+
+.nav-btn-logout {
+  background-color: var(--accent-yellow);
+  color: var(--primary-blue);
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.nav-btn-logout:hover {
+  transform: scale(1.05);
+  background-color: #ffcc00;
+}
+
+/* =========================================
+   3. HERO SECTION (IISc Style Banner)
+   ========================================= */
+/* Ye naya section hai jo dashboard ko professional look dega */
+.hero-section {
+  background: linear-gradient(rgba(0, 35, 102, 0.8), rgba(0, 35, 102, 0.6)), 
+              url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); 
+  /* Note: Upar wali image placeholder hai, tum REC ki photo laga lena */
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 2rem;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--accent-yellow);
+  font-weight: 500;
+}
+
+/* =========================================
+   4. DASHBOARD CONTAINER & CARDS
+   ========================================= */
+.dashboard-container {
+  max-width: 1100px;
+  margin: 0 auto 3rem auto;
+  padding: 0 15px;
+}
+
+/* Post Filters (Tabs) */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.filter-btn {
+  padding: 10px 25px;
+  border: 2px solid var(--primary-blue);
+  background: transparent;
+  color: var(--primary-blue);
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filter-btn.active {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+.filter-btn:hover {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+/* Create Post Card */
+.create-post-card {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  border-top: 4px solid var(--accent-yellow); /* REC Highlight */
+  margin-bottom: 2rem;
+}
+
+/* Feed Post Card */
+.post-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.2s;
+  border-left: 5px solid transparent;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--hover-shadow);
+  border-left: 5px solid var(--primary-blue);
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.author-badge {
+  color: var(--primary-blue);
+  font-weight: bold;
+  font-size: 0.9rem;
+  background: #e8eaf6;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+/* Category Badges */
+.badge-job { background-color: #fff3cd; color: #856404; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+.badge-internship { background-color: #d4edda; color: #155724; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+.badge-general { background-color: #e2e3e5; color: #383d41; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+
+/* Buttons & Inputs */
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #001845;
+}
+
+.form-input, .form-select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.form-input:focus {
+  border-color: var(--primary-blue);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 35, 102, 0.1);
+}
+
+/* Auth Pages (Login/Register) Background */
+.auth-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--primary-blue), #000);
+}
+
+.auth-box {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  border-top: 5px solid var(--accent-yellow);
+}
